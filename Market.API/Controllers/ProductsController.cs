@@ -93,6 +93,11 @@ namespace Market.API.Controllers
                 return BadRequest();
             }
 
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             _context.Entry(product).State = EntityState.Modified;
 
             try
@@ -139,6 +144,10 @@ namespace Market.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
