@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market.API", "Market\Market.API.csproj", "{13BD190C-E025-425A-8AA8-A622781C61EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Market.Domain", "Market.Domain\Market.Domain.csproj", "{EF298033-FEA7-4E77-A244-F4221B489188}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market.Domain", "Market.Domain\Market.Domain.csproj", "{EF298033-FEA7-4E77-A244-F4221B489188}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Market.Infrastructure", "Market.Infrastructure\Market.Infrastructure.csproj", "{EE45940F-5039-41A0-8873-F0B9DD096B4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market.Infrastructure", "Market.Infrastructure\Market.Infrastructure.csproj", "{EE45940F-5039-41A0-8873-F0B9DD096B4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Market.API", "Market.API\Market.API.csproj", "{6023B968-59C6-40DC-8574-612D18AAC095}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{13BD190C-E025-425A-8AA8-A622781C61EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13BD190C-E025-425A-8AA8-A622781C61EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13BD190C-E025-425A-8AA8-A622781C61EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13BD190C-E025-425A-8AA8-A622781C61EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF298033-FEA7-4E77-A244-F4221B489188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EF298033-FEA7-4E77-A244-F4221B489188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF298033-FEA7-4E77-A244-F4221B489188}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{EE45940F-5039-41A0-8873-F0B9DD096B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE45940F-5039-41A0-8873-F0B9DD096B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE45940F-5039-41A0-8873-F0B9DD096B4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6023B968-59C6-40DC-8574-612D18AAC095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6023B968-59C6-40DC-8574-612D18AAC095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6023B968-59C6-40DC-8574-612D18AAC095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6023B968-59C6-40DC-8574-612D18AAC095}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
