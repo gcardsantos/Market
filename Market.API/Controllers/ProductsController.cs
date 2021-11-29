@@ -29,6 +29,7 @@ namespace Market.API.Controllers
         /// <returns>Busca um produto já criado.</returns>
         /// <response code="200">Sucesso na requisição dos produtos.</response>
         /// <response code="404">Produtos não encontrados.</response>
+        /// <response code="500">Ocorreu um erro ao obter a lista de produtos.</response>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
@@ -43,6 +44,7 @@ namespace Market.API.Controllers
         /// <returns>Busca um produto já criado.</returns>
         /// <response code="200">Sucesso na requisição do produto.</response>
         /// <response code="404">Product não encontrado.</response>
+        /// <response code="500">Ocorreu um erro ao obter o produto.</response>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -79,8 +81,9 @@ namespace Market.API.Controllers
         /// </remarks>
         /// <response code="201">Sucesso na requisição de alteração de específico produto.</response>
         /// <response code="204">Sucesso na requisição de alteração de específico produto.</response>
-        /// <response code="400">Retorno nulo.</response>
+        /// <response code="400">Modelo de produto inválido.</response>
         /// <response code="404">Produto não encontrado.</response>
+        /// <response code="500">Ocorreu um erro ao alterar o produto.</response>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -139,6 +142,7 @@ namespace Market.API.Controllers
         /// <response code="200">Sucesso na requisição</response>
         /// <response code="201">Cria um novo produto e retorna o novo item criado</response>
         /// <response code="400">Retorno nulo.</response>
+        /// <response code="500">Ocorreu um erro ao deletar o produto.</response>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
