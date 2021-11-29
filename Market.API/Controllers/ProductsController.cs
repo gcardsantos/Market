@@ -12,6 +12,7 @@ namespace Market.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class ProductsController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -22,6 +23,12 @@ namespace Market.API.Controllers
         }
 
         // GET: api/Products
+        /// <summary>
+        /// Busca todos os produtos.
+        /// </summary>
+        /// <returns>Busca um produto já criado.</returns>
+        /// <response code="200">Sucesso na requisição dos produtos.</response>
+        /// <response code="404">Produtos não encontrados.</response>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
@@ -29,7 +36,15 @@ namespace Market.API.Controllers
         }
 
         // GET: api/Products/5
+        /// <summary>
+        /// Busca um produto específico.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Busca um produto já criado.</returns>
+        /// <response code="200">Sucesso na requisição do produto.</response>
+        /// <response code="404">Product não encontrado.</response>
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -45,8 +60,30 @@ namespace Market.API.Controllers
 
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Modifica um produto.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="product"></param>
+        /// <returns>Modifica um Product já criado.</returns>
+        /// <remarks>
+        /// Exemplo:
+        ///
+        ///     {
+        ///        "id": 5,
+        ///        "name": "Nome do produto",
+        ///        "price": 10
+        ///        "quantity": 1
+        ///     }
+        ///
+        /// </remarks>
+        /// <response code="201">Sucesso na requisição de alteração de específico produto.</response>
+        /// <response code="204">Sucesso na requisição de alteração de específico produto.</response>
+        /// <response code="400">Retorno nulo.</response>
+        /// <response code="404">Produto não encontrado.</response>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> PutProduct(int id, Product product)
@@ -79,7 +116,27 @@ namespace Market.API.Controllers
 
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Insere um produto.
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns>Um novo Product criado.</returns>
+        /// <remarks>
+        /// Exemplo:
+        ///
+        ///     {
+        ///        "name": "Nome do produto",
+        ///        "price": 10,
+        ///        "quantity": 1
+        ///     }
+        ///
+        /// </remarks>
+        /// <response code="200">Sucesso na requisição</response>
+        /// <response code="201">Cria um novo produto e retorna o novo item criado</response>
+        /// <response code="400">Retorno nulo.</response>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
             _context.Products.Add(product);
@@ -89,8 +146,13 @@ namespace Market.API.Controllers
         }
 
         // DELETE: api/Products/5
+        /// <summary>
+        /// Remove um produto pelo Index.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <response code="404">Retorna se o produto não foi encontrado.</response>      
+        /// <response code="204">Produto removido ou não existente.</response>      
         [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteProduct(int id)
